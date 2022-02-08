@@ -33,11 +33,27 @@ def booking():
     print("You can book from today, which is  " + str(date) + " to " + str(end_date) + ". Enter your preferred date below.")
 
     while date_booked < date or date_booked > end_date:
-        month = int(input("Enter the month you want to book (1-12). "))
-        day = int(input("Enter the day of the month you want to book. "))
+        month = int(input("Enter the month you want to book (1-12): "))
+        day = int(input("Enter the day of the month you want to book: "))
         date_booked = datetime.date(2022, month, day)
 
         if date_booked > date and date_booked < end_date:
             print("Confirmed date to " + str(date_booked) + ".")
         else:
             print("Your chosen date is not in range. Enter a valid date.")
+
+    print("Please look at what was printed for the one-day attractions, two-day attractions and their respective prices.")
+    choice = int(input("For one-day attractions, enter '1'. For two-day attractions, enter '2' here: "))
+
+    extra_att = 10
+
+    print("For the next input, select 0 for no extra attractions, 1 for the first extra attraction, 2 for the second extra attraction, and so on.")
+    if choice == 1:
+        while extra_att > 2 or extra_att < 0:
+            extra_att = int(input("Select your extra attractions (0, 1, 2): "))
+    if choice == 2:
+        while extra_att > 3 or extra_att < 0:
+            extra_att = int(input("Select your extra attractions (0, 1, 2, 3): "))
+
+
+booking()
