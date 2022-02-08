@@ -26,9 +26,12 @@ print("-------------------------------------------------------------------------
 # TASK 2
 
 def booking():
+    # VARIABLES
     date = datetime.date.today()
     end_date = date + timedelta(days=7)
     date_booked = datetime.date(2022, 1, 1)
+    extra_att = 10
+    price = 0
 
     print("You can book from today, which is  " + str(date) + " to " + str(end_date) + ". Enter your preferred date below.")
 
@@ -45,8 +48,6 @@ def booking():
     print("Please look at what was printed for the one-day attractions, two-day attractions and their respective prices.")
     choice = int(input("For one-day attractions, enter '1'. For two-day attractions, enter '2' here: "))
 
-    extra_att = 10
-
     print("For the next input, select 0 for no extra attractions, 1 for the first extra attraction, 2 for the second extra attraction, and so on.")
     if choice == 1:
         while extra_att > 2 or extra_att < 0:
@@ -55,5 +56,18 @@ def booking():
         while extra_att > 3 or extra_att < 0:
             extra_att = int(input("Select your extra attractions (0, 1, 2, 3): "))
 
+    # NO EXTRA ATTRACTION
+    if extra_att == 0:
+        print(price)
+    # LION FEEDING
+    if extra_att == 1:
+        price += 2.5
+    # PENGUIN FEEDING
+    if extra_att == 2:
+        price += 2
+    # EVENING BARBECUE (two-day tickets)
+    if extra_att == 3:
+        price += 5
+    print(price)
 
 booking()
