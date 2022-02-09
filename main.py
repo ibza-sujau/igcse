@@ -21,7 +21,6 @@ table_att = [["Extra Attraction", "Cost Per Person ($)"], [att_1[0], att_1[1]], 
 
 print(tabulate(table_types, headers='firstrow', tablefmt='fancy_grid'))
 print(tabulate(table_att, headers='firstrow', tablefmt='fancy_grid'))
-print("---------------------------------------------------------------------------------------------------------")
 
 # TASK 2
 
@@ -59,28 +58,39 @@ def booking():
     adults = int(input("Enter the number of adults you have in your group: "))
     children = int(input("Enter the number of children you have in your group: "))
     seniors = int(input("Enter the number of seniors you have in your group: "))
+    group = (adults + children + seniors)
 
     if choice == 1:
-        if (adults or seniors <= 2) and children == 3:
-            offer = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
-            if offer == 1:
-                price += type_4[1]
-            if offer == 0:
-                price += (adults * type_1[1])
-                if children > (2 * adults):
-                    price += ((children - (2 * adults)) * type_2[1])
-                price += (seniors * type_3[1])
+        if group >= 6:
+            offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
+            if offer_1 == 1:
+                price += type_5[1] * group
+            if offer_1 == 0:
+                if (adults or seniors <= 2) and children == 3:
+                    offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                    if offer_2 == 1:
+                        price += type_4[1]
+                    if offer_2 == 0:
+                        price += (adults * type_1[1])
+                        if children > (2 * adults):
+                            price += ((children - (2 * adults)) * type_2[1])
+                        price += (seniors * type_3[1])
 
     if choice == 2:
-        if (adults or seniors <= 2) and children == 3:
-            offer = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
-            if offer == 1:
-                price += type_4[2]
-            if offer == 0:
-                price += (adults * type_1[2])
-                if children > (2 * adults):
-                    price += ((children - (2 * adults)) * type_2[2])
-                price += (seniors * type_3[2])
+        if group >= 6:
+            offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
+            if offer_1 == 1:
+                price += type_5[2] * group
+            if offer_1 == 0:
+                if (adults or seniors <= 2) and children == 3:
+                    offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                    if offer_2 == 1:
+                        price += type_4[2]
+                    if offer_2 == 0:
+                        price += (adults * type_1[2])
+                        if children > (2 * adults):
+                            price += ((children - (2 * adults)) * type_2[2])
+                        price += (seniors * type_3[2])
 
     # LION FEEDING
     if extra_att == 1:
