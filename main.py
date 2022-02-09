@@ -66,6 +66,12 @@ def booking():
             price += ((children - (2 * adults)) * type_2[1])
         price += (seniors * type_3[1])
 
+    if choice == 2:
+        price += (adults * type_1[2])
+        if children > (2 * adults):
+            price += ((children - (2 * adults)) * type_2[2])
+        price += (seniors * type_3[2])
+
     # NO EXTRA ATTRACTION
     if extra_att == 0:
         price += price
