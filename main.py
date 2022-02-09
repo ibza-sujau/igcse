@@ -30,13 +30,15 @@ def booking():
     date = datetime.date.today()
     end_date = date + timedelta(days=7)
     date_booked = datetime.date(2022, 1, 1)
+    booking_num = random.randint(1000, 9999)
+    price = 0
+
+    # WHILE LOOP PROTECTION
     extra_att = 10
     choice = 10
     confirmation = 10
     offer_1 = 10
     offer_2 = 10
-    price = 0
-    booking_num = random.randint(1000, 9999)
 
     print("You can book from today, which is  " + str(date) + " to " + str(end_date) + ". Enter your preferred date below.")
 
@@ -118,7 +120,9 @@ def booking():
         confirmation = int(input("Your final price is $" + str(price) + ". Would you like to confirm the booking? Enter '1' to proceed, '0' if you don't: "))
 
     if confirmation == 1:
+        print("-----------------------------------------------------------------------------------------------------------")
         print("Your BOOKING NUMBER is #" + str(booking_num) + ". Thank you for working with us. Hope to see you soon.")
+        print("-----------------------------------------------------------------------------------------------------------")
     if confirmation == 0:
         print("Too bad you cannot turn back now. Booking confirmed.")
 
