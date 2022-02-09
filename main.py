@@ -60,9 +60,15 @@ def booking():
     children = int(input("Enter the number of children you have in your group: "))
     seniors = int(input("Enter the number of seniors you have in your group: "))
 
+    if choice == 1:
+        price += (adults * type_1[1])
+        if children > (2 * adults):
+            price += ((children - (2 * adults)) * type_2[1])
+        price += (seniors * type_3[1])
+
     # NO EXTRA ATTRACTION
     if extra_att == 0:
-        print(price)
+        price += price
     # LION FEEDING
     if extra_att == 1:
         price += 2.5 * (adults + children + seniors)
