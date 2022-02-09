@@ -1,4 +1,5 @@
 import datetime
+import random
 from tabulate import tabulate
 from datetime import timedelta, date
 
@@ -30,7 +31,12 @@ def booking():
     end_date = date + timedelta(days=7)
     date_booked = datetime.date(2022, 1, 1)
     extra_att = 10
+    choice = 10
+    confirmation = 10
+    offer_1 = 10
+    offer_2 = 10
     price = 0
+    booking_num = random.randint(1000, 9999)
 
     print("You can book from today, which is  " + str(date) + " to " + str(end_date) + ". Enter your preferred date below.")
 
@@ -45,9 +51,11 @@ def booking():
             print("Your chosen date is not in range. Enter a valid date.")
 
     print("Please look at what was printed for the one-day attractions, two-day attractions and their respective prices.")
-    choice = int(input("For one-day attractions, enter '1'. For two-day attractions, enter '2' here: "))
 
-    print("For the next input, select 0 for no extra attractions, 1 for the first extra attraction, 2 for the second extra attraction, and so on.")
+    while choice < 1 or choice > 2:
+        choice = int(input("For one-day attractions, enter '1'. For two-day attractions, enter '2' here: "))
+        print("For the next input, select 0 for no extra attractions, 1 for the first extra attraction, 2 for the second extra attraction, and so on.")
+
     if choice == 1:
         while extra_att > 2 or extra_att < 0:
             extra_att = int(input("Select your extra attractions (0, 1, 2): "))
@@ -62,12 +70,14 @@ def booking():
 
     if choice == 1:
         if group >= 6:
-            offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
+            while offer_1 < 0 or offer_1 > 1:
+                offer_1 = int(input("You have a group of 6 people or more. Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += type_5[1] * group
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
-                    offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                    while offer_2 < 0 or offer_2 > 1:
+                        offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[1]
                     if offer_2 == 0:
@@ -78,12 +88,14 @@ def booking():
 
     if choice == 2:
         if group >= 6:
-            offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
+            while offer_1 < 0 or offer_1 > 1:
+                offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += type_5[2] * group
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
-                    offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                    while offer_2 < 0 or offer_2 > 1:
+                        offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[2]
                     if offer_2 == 0:
@@ -101,7 +113,14 @@ def booking():
     # EVENING BARBECUE
     if extra_att == 3:
         price += 5 * (adults + children + seniors)
-    print(price)
+
+    while confirmation < 0 or confirmation > 1:
+        confirmation = int(input("Your final price is $" + str(price) + ". Would you like to confirm the booking? Enter '1' to proceed, '0' if you don't: "))
+
+    if confirmation == 1:
+        print("Your BOOKING NUMBER is #" + str(booking_num) + ". Thank you for working with us. Hope to see you soon.")
+    if confirmation == 0:
+        print("Too bad you cannot turn back now. Booking confirmed.")
 
 booking()
 
