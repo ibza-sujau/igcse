@@ -61,27 +61,34 @@ def booking():
     seniors = int(input("Enter the number of seniors you have in your group: "))
 
     if choice == 1:
-        price += (adults * type_1[1])
-        if children > (2 * adults):
-            price += ((children - (2 * adults)) * type_2[1])
-        price += (seniors * type_3[1])
+        if (adults or seniors <= 2) and children == 3:
+            offer = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+            if offer == 1:
+                price += type_4[1]
+            if offer == 0:
+                price += (adults * type_1[1])
+                if children > (2 * adults):
+                    price += ((children - (2 * adults)) * type_2[1])
+                price += (seniors * type_3[1])
 
     if choice == 2:
-        price += (adults * type_1[2])
-        if children > (2 * adults):
-            price += ((children - (2 * adults)) * type_2[2])
-        price += (seniors * type_3[2])
+        if (adults or seniors <= 2) and children == 3:
+            offer = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+            if offer == 1:
+                price += type_4[2]
+            if offer == 0:
+                price += (adults * type_1[2])
+                if children > (2 * adults):
+                    price += ((children - (2 * adults)) * type_2[2])
+                price += (seniors * type_3[2])
 
-    # NO EXTRA ATTRACTION
-    if extra_att == 0:
-        price += price
     # LION FEEDING
     if extra_att == 1:
         price += 2.5 * (adults + children + seniors)
     # PENGUIN FEEDING
     if extra_att == 2:
         price += 2 * (adults + children + seniors)
-    # EVENING BARBECUE (two-day tickets)
+    # EVENING BARBECUE
     if extra_att == 3:
         price += 5 * (adults + children + seniors)
     print(price)
