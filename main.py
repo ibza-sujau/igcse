@@ -23,7 +23,7 @@ def show_options():
     print(tabulate(table_types, headers='firstrow', tablefmt='fancy_grid'))
     print(tabulate(table_att, headers='firstrow', tablefmt='fancy_grid'))
 
-# TASK 2
+# TASK 2 and 3
 def booking():
     # VARIABLES
     date = datetime.date.today()
