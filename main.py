@@ -72,9 +72,9 @@ def booking():
     if choice == 1:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("You have a group of 6 people or more. Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. You have a group of 6 people or more. Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
-                price += type_5[1] * group
+                price += (type_5[1] * group)
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
@@ -89,9 +89,9 @@ def booking():
     if choice == 2:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("You have a group of 6 people or more. Would you like to take ticket type 5? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. You have a group of 6 people or more. Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
-                price += type_5[2] * group
+                price += (type_5[2] * group)
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
