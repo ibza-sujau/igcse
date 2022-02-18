@@ -78,13 +78,12 @@ def booking():
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
-                        offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                        offer_2 = int(input("OFFER. Your current price is $" + str((adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You can take a family ticket which costs $90. Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[1]
                     if offer_2 == 0:
                         price += (adults * type_1[1])
-                        if children > (2 * adults):
-                            price += ((children - (2 * adults)) * type_2[1])
+                        price += (children * type_2[1])
                         price += (seniors * type_3[1])
 
     if choice == 2:
@@ -96,13 +95,12 @@ def booking():
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
-                        offer_2 = int(input("You have to take a family ticket. NOW! Enter '1' if you want this deal, '0' if you don't: "))
+                        offer_2 = int(input("OFFER. Your current price is $" + str((adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You can take a family ticket which costs $90. Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[2]
                     if offer_2 == 0:
                         price += (adults * type_1[2])
-                        if children > (2 * adults):
-                            price += ((children - (2 * adults)) * type_2[2])
+                        price += (children * type_2[2])
                         price += (seniors * type_3[2])
 
     # LION FEEDING
