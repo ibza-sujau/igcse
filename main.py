@@ -121,7 +121,9 @@ def booking():
         print("Your BOOKING NUMBER is #" + str(booking_num) + ". Thank you for working with us. Hope to see you soon.")
         print("-----------------------------------------------------------------------------------------------------------")
     if confirmation == 0:
-        print("Booking cancelled.")
+        print("-----------------------------------------------------------------------------------------------------------")
+        print("Booking cancelled. Please restart to book again.")
+        print("-----------------------------------------------------------------------------------------------------------")
 
 show_options()
 booking()
