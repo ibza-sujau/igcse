@@ -69,16 +69,26 @@ def booking():
     seniors = int(input("Enter the number of seniors you have in your group: "))
     group = (adults + children + seniors)
 
+    # LION FEEDING
+    if extra_att == 1:
+        price += 2.5 * (adults + children + seniors)
+    # PENGUIN FEEDING
+    if extra_att == 2:
+        price += 2 * (adults + children + seniors)
+    # EVENING BARBECUE
+    if extra_att == 3:
+        price += 5 * (adults + children + seniors)
+
     if choice == 1:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("OFFER. " + "Your current price is $" + str((adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[1] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. " + "Your current price is $" + str(price + (adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[1] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += (type_5[1] * group)
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
-                        offer_2 = int(input("OFFER. Your current price is $" + str((adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You can take a family ticket which costs $60. Enter '1' if you want this deal, '0' if you don't: "))
+                        offer_2 = int(input("OFFER. Your current price is $" + str(price + (adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You can take a family ticket which costs $60. Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[1]
                     if offer_2 == 0:
@@ -89,29 +99,19 @@ def booking():
     if choice == 2:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("OFFER. " + "Your current price is $" + str((adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[2] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. " + "Your current price is $" + str(price + (adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[2] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += (type_5[2] * group)
             if offer_1 == 0:
                 if (adults or seniors <= 2) and children == 3:
                     while offer_2 < 0 or offer_2 > 1:
-                        offer_2 = int(input("OFFER. Your current price is $" + str((adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You can take a family ticket which costs $90. Enter '1' if you want this deal, '0' if you don't: "))
+                        offer_2 = int(input("OFFER. Your current price is $" + str(price + (adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You can take a family ticket which costs $90. Enter '1' if you want this deal, '0' if you don't: "))
                     if offer_2 == 1:
                         price += type_4[2]
                     if offer_2 == 0:
                         price += (adults * type_1[2])
                         price += (children * type_2[2])
                         price += (seniors * type_3[2])
-
-    # LION FEEDING
-    if extra_att == 1:
-        price += 2.5 * (adults + children + seniors)
-    # PENGUIN FEEDING
-    if extra_att == 2:
-        price += 2 * (adults + children + seniors)
-    # EVENING BARBECUE
-    if extra_att == 3:
-        price += 5 * (adults + children + seniors)
 
     while confirmation < 0 or confirmation > 1:
         confirmation = int(input("Your final price is $" + str(price) + ". Would you like to confirm the booking? Enter '1' to proceed, '0' if you don't: "))
