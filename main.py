@@ -72,7 +72,7 @@ def booking():
     if choice == 1:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("OFFER. You have a group of 6 people or more. Your current price is $" + str((adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You can take the group ticket for $" + str((type_5[1] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. " + "Your current price is $" + str((adults * type_1[1]) + (children * type_2[1]) + (seniors * type_3[1])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[1] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += (type_5[1] * group)
             if offer_1 == 0:
@@ -89,7 +89,7 @@ def booking():
     if choice == 2:
         if group >= 6:
             while offer_1 < 0 or offer_1 > 1:
-                offer_1 = int(input("OFFER. You have a group of 6 people or more. Your current price is $" + str((adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You can take the group ticket for $" + str((type_5[2] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
+                offer_1 = int(input("OFFER. " + "Your current price is $" + str((adults * type_1[2]) + (children * type_2[2]) + (seniors * type_3[2])) + ". You have a group of 6 people or more. You can take the group ticket for $" + str((type_5[2] * group)) + ". Would you like to take a group ticket? Enter '1' if you want this deal, '0' if you don't: "))
             if offer_1 == 1:
                 price += (type_5[2] * group)
             if offer_1 == 0:
