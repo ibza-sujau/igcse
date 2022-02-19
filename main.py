@@ -127,6 +127,3 @@ def booking():
 
 show_options()
 booking()
-
-
-
