@@ -71,13 +71,13 @@ def booking():
 
     # LION FEEDING
     if extra_att == 1:
-        price += 2.5 * (adults + children + seniors)
+        price += 2.5 * group
     # PENGUIN FEEDING
     if extra_att == 2:
-        price += 2 * (adults + children + seniors)
+        price += 2 * group
     # EVENING BARBECUE
     if extra_att == 3:
-        price += 5 * (adults + children + seniors)
+        price += 5 * group
 
     if choice == 1:
         if group >= 6:
